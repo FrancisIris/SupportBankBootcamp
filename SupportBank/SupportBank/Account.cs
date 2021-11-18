@@ -19,6 +19,7 @@ namespace SupportBank
 
         public void AddTransaction(Transaction transaction)
         {
+            Balance = transaction.From == this ? Balance - transaction.Amount : Balance + transaction.Amount;
             Transactions.Add(transaction);
         }
 

@@ -6,13 +6,13 @@ namespace SupportBank
 {
     public class Transaction
     {
-        public string Date { get;}
+        public DateTime Date { get;}
         public Account From { get;}
         public Account To { get;}
         public string Narrative { get;}
         public decimal Amount { get;}
 
-        public Transaction(string date,Account from,Account to,string narrative,decimal amount)
+        public Transaction(DateTime date,Account from,Account to,string narrative,decimal amount)
         {
             Date = date;
             From = from;
@@ -23,7 +23,7 @@ namespace SupportBank
 
         public override string ToString()
         {
-            return $"{Date},{From.Name},{To.Name},{Narrative},{Amount}";
+            return $"{Date.ToShortDateString()},{From.Name},{To.Name},{Narrative},{Amount}";
         }
 
     }
