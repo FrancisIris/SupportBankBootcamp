@@ -6,7 +6,7 @@ namespace SupportBank
 {
     public class Account
     {
-        public string Name { get; set; }
+        public string Name { get;}
         public decimal Balance { get; set; }
 
         private List<Transaction> Transactions { get; }

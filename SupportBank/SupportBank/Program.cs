@@ -58,7 +58,7 @@ namespace SupportBank
                 Console.WriteLine($"{userInput} was not a correct entry.");
             }
 
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine("Press Enter to continue");
             Console.ReadLine();
             return true;
         }

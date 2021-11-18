@@ -20,33 +20,15 @@ namespace SupportBank
                 string creditor = items[2];
                 string service = items[3];
                 string amount = items[4];
-                Account debterAccount;
-                Account creditorAccount;
 
-                if (Accounts.ContainsKey(debter))
-                {
-                    debterAccount = Accounts[debter];
-                }
-                else
-                {
-                    debterAccount = new Account(debter);
-                    Accounts.Add(debter, debterAccount);
-                }
+                Accounts.TryAdd(debter, new Account(debter));
 
-                if (Accounts.ContainsKey(creditor))
-                {
-                    creditorAccount = Accounts[creditor];
-                }
-                else
-                {
-                    creditorAccount = new Account(creditor);
-                    Accounts.Add(creditor, creditorAccount);
-                }
-                
-                Transaction currentTransaction = new Transaction(transactionDate, debterAccount, creditorAccount, service, decimal.Parse(amount));
+                Accounts.TryAdd(creditor, new Account(creditor));
+
+                Transaction currentTransaction = new Transaction(transactionDate, Accounts[debter], Accounts[creditor], service, decimal.Parse(amount));
                 Transactions.Add(currentTransaction);
-                debterAccount.AddTransaction(currentTransaction);
-                creditorAccount.AddTransaction(currentTransaction);
+                Accounts[debter].AddTransaction(currentTransaction);
+                Accounts[creditor].AddTransaction(currentTransaction);
 
                 Accounts[debter].Balance -= decimal.Parse(amount);
                 Accounts[creditor].Balance += decimal.Parse(amount);

@@ -6,11 +6,11 @@ namespace SupportBank
 {
     public class Transaction
     {
-        public string Date { get; set; }
-        public Account From { get; set; }
-        public Account To { get; set; }
-        public string Narrative { get; set; }
-        public decimal Amount { get; set; }
+        public string Date { get;}
+        public Account From { get;}
+        public Account To { get;}
+        public string Narrative { get;}
+        public decimal Amount { get;}
 
         public Transaction(string date,Account from,Account to,string narrative,decimal amount)
         {
