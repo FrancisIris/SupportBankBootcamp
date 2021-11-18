@@ -8,8 +8,8 @@ namespace SupportBank
 {
     class TransactionDatebase
     {
-        Dictionary<string, Account> Accounts = new Dictionary<string, Account>();
-        List<Transaction> Transactions = new List<Transaction>();
+        public Dictionary<string, Account> Accounts = new Dictionary<string, Account>();
+        public List<Transaction> Transactions = new List<Transaction>();
         public TransactionDatebase(string path)
         {
             foreach (string line in File.ReadAllLines(path).Skip(1))
@@ -22,6 +22,7 @@ namespace SupportBank
                 string amount = items[4];
                 Account debterAccount;
                 Account creditorAccount;
+
                 if (Accounts.ContainsKey(debter))
                 {
                     debterAccount = Accounts[debter];
@@ -56,7 +57,18 @@ namespace SupportBank
         {
             foreach(var entry in Transactions)
             {
-                Console.WriteLine(entry.GetTransactionString());
+                Console.WriteLine(entry.ToString());
+            }
+        }
+        public Account GetAccount(string name)
+        {
+            return Accounts[name];
+        }
+        public void PrintBalances()
+        {
+            foreach(var account in Accounts)
+            {
+                Console.WriteLine($"Name:{account.Value.Name} ### Balance:{account.Value.Balance}"); 
             }
         }
     }

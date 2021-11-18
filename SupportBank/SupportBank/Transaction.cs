@@ -21,7 +21,7 @@ namespace SupportBank
             Amount = amount;
         }
 
-        public string GetTransactionString()
+        public override string ToString()
         {
             return $"{Date},{From.Name},{To.Name},{Narrative},{Amount}";
         }

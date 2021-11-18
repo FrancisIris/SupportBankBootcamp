@@ -26,7 +26,7 @@ namespace SupportBank
         {
             foreach(var transaction in Transactions)
             {
-                Console.WriteLine(transaction.GetTransactionString());
+                Console.WriteLine(transaction.ToString());
             }
         }
 
