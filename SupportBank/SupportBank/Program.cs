@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace SupportBank
@@ -13,7 +10,7 @@ namespace SupportBank
         private static TransactionDatebase db;
         static void Main(string[] args)
        {
-            db = new TransactionDatebase(path1);
+            db = new TransactionDatebase(path2);//change path for which database you want to use
             bool go = true;
             while (go)
             {

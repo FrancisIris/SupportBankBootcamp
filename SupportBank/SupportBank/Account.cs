@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SupportBank
 {
@@ -30,6 +29,5 @@ namespace SupportBank
                 Console.WriteLine(transaction.ToString());
             }
         }
-
     }
 }

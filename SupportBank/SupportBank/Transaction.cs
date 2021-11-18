@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SupportBank
 {
@@ -23,7 +21,7 @@ namespace SupportBank
 
         public override string ToString()
         {
-            return $"{Date.ToShortDateString()},{From.Name},{To.Name},{Narrative},{Amount}";
+            return $"{Date.ToShortDateString()},{From.Name},{To.Name},{Narrative},{Amount:C}";
         }
 
     }

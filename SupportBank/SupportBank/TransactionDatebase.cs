@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace SupportBank
 {
@@ -60,7 +59,7 @@ namespace SupportBank
         {
             foreach (var account in Accounts)
             {
-                Console.WriteLine($"Name:{account.Value.Name} ### Balance:{account.Value.Balance}");
+                Console.WriteLine($"{account.Value.Name}      {account.Value.Balance:C}");
             }
         }
     }
