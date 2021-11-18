@@ -15,23 +15,33 @@ namespace SupportBank
             foreach (string line in File.ReadAllLines(path).Skip(1))
             {
                 string[] items = line.Split(',');
-                string transactionDate = items[0];
+                DateTime transactionDate;
+                if(!DateTime.TryParse(items[0], out transactionDate))
+                {
+                    //say something about datetime issue
+                    continue;
+                }
                 string debter = items[1];
                 string creditor = items[2];
                 string service = items[3];
-                string amount = items[4];
+                decimal amount;
+                if (!decimal.TryParse(items[4], out amount))
+                {
+                    //say something about amount type issue
+                    continue;
+                }
 
                 Accounts.TryAdd(debter, new Account(debter));
 
                 Accounts.TryAdd(creditor, new Account(creditor));
 
-                Transaction currentTransaction = new Transaction(transactionDate, Accounts[debter], Accounts[creditor], service, decimal.Parse(amount));
+                Transaction currentTransaction = new Transaction(transactionDate, Accounts[debter], Accounts[creditor], service, amount);
                 Transactions.Add(currentTransaction);
                 Accounts[debter].AddTransaction(currentTransaction);
                 Accounts[creditor].AddTransaction(currentTransaction);
 
-                Accounts[debter].Balance -= decimal.Parse(amount);
-                Accounts[creditor].Balance += decimal.Parse(amount);
+                Accounts[debter].Balance -= amount;
+                Accounts[creditor].Balance += amount;
             }
         }
 
