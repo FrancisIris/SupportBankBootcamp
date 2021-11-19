@@ -7,8 +7,8 @@ namespace SupportBank
     {
         public string Name { get;}
         public decimal Balance { get; set; }
-
-        private List<Transaction> Transactions { get; }
+        private List<Transaction> Transactions { get;
+        }
         public Account(string name)
         {
             Name = name;
@@ -26,7 +26,7 @@ namespace SupportBank
         {
             foreach(var transaction in Transactions)
             {
-                Console.WriteLine(transaction.ToString());
+                Console.WriteLine(transaction);
             }
         }
     }
